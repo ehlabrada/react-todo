@@ -6,7 +6,6 @@ const TodoList = ({ todos, onDelete }) => {
   return (
     <Box width="100%">
       {todos.map((todo) => {
-        console.log("TODOS",todo)
         return <TodoItem key={todo.id} todo={todo} onDelete={onDelete} />;
       })}
     </Box>

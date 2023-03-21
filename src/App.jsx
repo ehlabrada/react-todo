@@ -1,15 +1,15 @@
 import "./App.css";
-import {Box, Center, Divider, Grid, GridItem, VStack,} from "@chakra-ui/react";
+import { Box, Center, Divider, Grid, GridItem, VStack } from "@chakra-ui/react";
 import TimeFrequencyPicker from "./components/TimeFrequencyPicker.jsx";
 import DailyTimePicker from "./components/DailyTimePicker.jsx";
 import TodoForm from "./components/TodoForm.jsx";
 import TodoList from "./components/TodoList.jsx";
 import useTodos from "./hooks/useTodos.js";
+import useDateHandler from "./hooks/useDateHandler.js";
 
 function App() {
-
-  const { todos, ...options} = useTodos()
-
+  const { todos, ...options } = useTodos();
+  const {currentDate, handleOnDateChange} = useDateHandler();
 
   return (
     <Center paddingTop={5}>
@@ -19,12 +19,12 @@ function App() {
             <TimeFrequencyPicker />
             <Divider />
             <VStack padding={10} spacing={4}>
-              <DailyTimePicker />
-              <TodoForm
-                onAdd={(value) => options.add(value)}
-
+              <DailyTimePicker
+                currentDate={currentDate}
+                onDayChange={(change) => handleOnDateChange(change)}
               />
-              <TodoList todos={todos}  onDelete={(id)=>options.delete(id)} />
+              <TodoForm onAdd={(value) => options.add(value)} />
+              <TodoList todos={todos} onDelete={(id) => options.delete(id)} />
             </VStack>
           </Box>
         </GridItem>
