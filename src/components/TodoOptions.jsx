@@ -9,10 +9,9 @@ import {
     PopoverTrigger,
     VStack,
 } from "@chakra-ui/react";
-import TodoOptionsIcon from "./TodoOptionsIcon.jsx";
 import {HamburgerIcon} from "@chakra-ui/icons";
 
-const TodoOptions = () => {
+const TodoOptions = ({id, onDelete}) => {
   return (
     <Popover>
       <PopoverTrigger>
@@ -24,7 +23,7 @@ const TodoOptions = () => {
         <PopoverHeader>Options</PopoverHeader>
         <PopoverBody>
           <VStack>
-            <Button>Delete</Button>
+            <Button onClick={() => onDelete(id)}>Delete</Button>
           </VStack>
         </PopoverBody>
       </PopoverContent>

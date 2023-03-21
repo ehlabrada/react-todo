@@ -13,6 +13,7 @@ import TimeFrequencyPicker from "./components/TimeFrequencyPicker.jsx";
 import DailyTimePicker from "./components/DailyTimePicker.jsx";
 import TodoForm from "./components/TodoForm.jsx";
 import TodoList from "./components/TodoList.jsx";
+import todoItem from "./components/TodoItem.jsx";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -24,6 +25,10 @@ function App() {
     return { id: todos.length + 1, description: value, isCompleted: false };
   };
 
+  const deleteTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
   return (
     <Center paddingTop={5}>
       <Grid templateAreas={`"main"`}>
@@ -33,8 +38,11 @@ function App() {
             <Divider />
             <VStack padding={10} spacing={4}>
               <DailyTimePicker />
-              <TodoForm onAdd={(value) => setTodos([createTodo(value), ...todos])} />
-              <TodoList todos={todos} />
+              <TodoForm
+                onAdd={(value) => setTodos([createTodo(value), ...todos])}
+
+              />
+              <TodoList todos={todos}  onDelete={(id)=>deleteTodo(id)} />
             </VStack>
           </Box>
         </GridItem>
