@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const useTodos = () => {
+const useTodos = (currentDate) => {
   const [todos, setTodos] = useState([
     {
       id: 1,
       description: "Buy the bread",
       isCompleted: false,
       isPinned: false,
+      creationDate: new Date(2023, 2, 21),
       dueDate: new Date(2023, 2, 21),
     },
     {
@@ -14,6 +15,7 @@ const useTodos = () => {
       description: "Fix the sink",
       isCompleted: true,
       isPinned: false,
+      creationDate: new Date(2023, 2, 22),
       dueDate: new Date(2023, 2, 22),
     },
   ]);
@@ -25,9 +27,20 @@ const useTodos = () => {
       description: value,
       isCompleted: false,
       isPinned: false,
+      creationDate: new Date(),
       dueDate: new Date(),
     };
-  }
+  };
+
+  let todosFiltered = todos.filter((todo) => {
+    return (
+      todo.dueDate.getFullYear() === currentDate.getFullYear() &&
+      todo.dueDate.getMonth() === currentDate.getMonth() &&
+      todo.dueDate.getDate() === currentDate.getDate()
+    );
+  });
+
+
 
   const addTodo = (value) => {
     setTodos([createTodo(value), ...todos]);
@@ -52,7 +65,7 @@ const useTodos = () => {
   };
 
   return {
-    todos: todos,
+    todos: todosFiltered,
     add: addTodo,
     delete: deleteTodo,
     pinTodo: pinTodo,

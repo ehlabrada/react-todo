@@ -8,8 +8,8 @@ import useTodos from "./hooks/useTodos.js";
 import useDateHandler from "./hooks/useDateHandler.js";
 
 function App() {
-  const { todos, ...options } = useTodos();
   const {currentDate, handleOnDateChange} = useDateHandler();
+  const { todos, ...options } = useTodos(currentDate);
 
   return (
     <Center paddingTop={5}>
