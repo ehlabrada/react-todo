@@ -7,7 +7,7 @@ const TimeFrequencyPicker = ({timeFrequency, onChangeTimeFrequency}) => {
       <HStack h="50px" justifyContent="space-evenly" color="white">
         <ButtonGroup>
           <Button isActive={timeFrequency === "daily"} onClick={() => onChangeTimeFrequency("daily")}>Day</Button>
-          <Button isActive={timeFrequency === "weekly"} onClick={() => onChangeTimeFrequency("weekly")}>Week</Button>
+          {/*<Button isActive={timeFrequency === "weekly"} onClick={() => onChangeTimeFrequency("weekly")}>Week</Button>*/}
           <Button isActive={timeFrequency === "monthly"} onClick={() => onChangeTimeFrequency("monthly")}>Month</Button>
           <Button isActive={timeFrequency === "yearly"} onClick={() => onChangeTimeFrequency("yearly")}>Year</Button>
         </ButtonGroup>

@@ -7,8 +7,7 @@ const YearlyTimePicker = ({ currentDate, onDayChange }) => {
         <HStack marginBottom={10} color="whitesmoke">
             <ChevronLeftIcon onClick={() => onDayChange("left")} />
             <VStack>
-                <Text fontSize='4xl'> {weekDays[currentDate.getDay()]} </Text>
-                <Text>{months[currentDate.getMonth()]} {currentDate.getDate()}, {currentDate.getFullYear()} </Text>
+                <Text fontSize='4xl'> {currentDate.getFullYear()} </Text>
             </VStack>
             <ChevronRightIcon onClick={() => onDayChange("right")} />
         </HStack>

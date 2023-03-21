@@ -7,6 +7,7 @@ import TodoList from "./components/TodoList.jsx";
 import useTodos from "./hooks/useTodos.js";
 import useDateHandler from "./hooks/useDateHandler.js";
 import MonthlyTimePicker from "./components/MonthlyTimePicker.jsx";
+import YearlyTimePicker from "./components/YearlyTimePicker.jsx";
 
 function App() {
   const {
@@ -30,7 +31,7 @@ function App() {
           onDayChange={(change) => handleOnDateChange(change)}
       />
     } else if (timeFrequency === "yearly"){
-      timerSelected = <MonthlyTimePicker
+      timerSelected = <YearlyTimePicker
           currentDate={currentDate}
           onDayChange={(change) => handleOnDateChange(change)}
       />
