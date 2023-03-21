@@ -7,8 +7,9 @@ const TodoItem = ({ todo: { id, description, isCompleted } }) => {
     <HStack marginBottom={4} justifyContent="space-between">
       <Wrap>
         <Checkbox isChecked={isCompleted}></Checkbox>
-        <Text>{description} Tex</Text>
+        <Text>{description}</Text>
       </Wrap>
+
         <TodoOptions/>
     </HStack>
   );

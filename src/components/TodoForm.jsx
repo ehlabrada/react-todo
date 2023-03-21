@@ -1,16 +1,21 @@
 import {Input, InputGroup, InputLeftElement} from "@chakra-ui/react";
 import {BsSearch} from "react-icons/bs";
+import {useRef} from "react";
 
-const TodoForm = () => {
+const TodoForm = ({onAdd}) => {
+    const inputRef = useRef(null)
     return (
-        <form>
-            <InputGroup>
+        <form onSubmit={(event) => {
+            event.preventDefault();
+            if (inputRef.current.value) onAdd(inputRef.current.value)
+        }}>
+            <InputGroup >
                 <InputLeftElement children={< BsSearch/>}/>
                 <Input
+                    ref={inputRef}
                     width='100%'
                     borderRadius={5}
                     variant='filled'
-                    color='gray.900'
                     placeholder='Add a task...'
                 />
             </InputGroup>

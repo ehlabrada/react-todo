@@ -1,6 +1,14 @@
 import { useState } from "react";
 import "./App.css";
-import {Box, Center, Divider, Grid, GridItem, HStack, VStack} from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Divider,
+  Grid,
+  GridItem,
+  HStack,
+  VStack,
+} from "@chakra-ui/react";
 import TimeFrequencyPicker from "./components/TimeFrequencyPicker.jsx";
 import DailyTimePicker from "./components/DailyTimePicker.jsx";
 import TodoForm from "./components/TodoForm.jsx";
@@ -11,16 +19,21 @@ function App() {
     { id: 1, description: "Buy the bread", isCompleted: false },
     { id: 2, description: "Fix the sink", isCompleted: true },
   ]);
+
+  const createTodo = (value) => {
+    return { id: todos.length + 1, description: value, isCompleted: false };
+  };
+
   return (
-    <Center paddingTop={5} >
+    <Center paddingTop={5}>
       <Grid templateAreas={`"main"`}>
         <GridItem borderRadius={4} background="gray.700">
-          <Box w="600px" >
+          <Box w="600px">
             <TimeFrequencyPicker />
             <Divider />
             <VStack padding={10} spacing={4}>
               <DailyTimePicker />
-              <TodoForm />
+              <TodoForm onAdd={(value) => setTodos([createTodo(value), ...todos])} />
               <TodoList todos={todos} />
             </VStack>
           </Box>
