@@ -1,11 +1,13 @@
 import React from "react";
 import {
-    Button, IconButton,
+    Button,
+    IconButton,
     Popover,
     PopoverArrow,
     PopoverBody,
     PopoverCloseButton,
-    PopoverContent, PopoverHeader,
+    PopoverContent,
+    PopoverHeader,
     PopoverTrigger,
     VStack,
 } from "@chakra-ui/react";
@@ -24,6 +26,7 @@ const TodoOptions = ({id, onDelete}) => {
         <PopoverBody>
           <VStack>
             <Button onClick={() => onDelete(id)}>Delete</Button>
+            <Button >Pin task</Button>
           </VStack>
         </PopoverBody>
       </PopoverContent>
