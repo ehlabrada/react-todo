@@ -50,7 +50,7 @@ function App() {
             <Divider />
             <VStack padding={10} spacing={4}>
               {timePicker}
-              <TodoForm onAdd={(value) => options.onAdd(value)} />
+              <TodoForm onAdd={(value, dueDate) => options.onAdd(value, dueDate)} />
               <TodoList
                 pinnedTodos={pinnedTodos}
                 todos={todos}

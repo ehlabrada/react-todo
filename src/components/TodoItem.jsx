@@ -11,7 +11,7 @@ const TodoItem = ({ todo, onDelete, onComplete, onPin }) => {
           isChecked={todo.isCompleted}
         ></Checkbox>
         <Text
-          color={todo.dueDate.getTime() > todo.creationDate.getTime() ? "red" : ""}
+          color={new Date() > todo.dueDate.getTime()  ? "red" : ""}
         >
           {todo.description}
         </Text>

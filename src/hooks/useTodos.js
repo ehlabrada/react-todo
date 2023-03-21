@@ -45,14 +45,14 @@ const useTodos = (currentDate, timeFrequency) => {
   ]);
 
   // Initial function to help to create todos (pure function)
-  const createTodo = (value) => {
+  const createTodo = (value, dueDate) => {
     return {
       id: todos.length + 1,
       description: value,
       isCompleted: false,
       isPinned: false,
       creationDate: new Date(),
-      dueDate: new Date(),
+      dueDate: new Date(dueDate),
     };
   };
 
@@ -83,8 +83,9 @@ const useTodos = (currentDate, timeFrequency) => {
 
   let pinnedTodos = todos.filter((todo) => todo.isPinned);
 
-  const addTodo = (value) => {
-    setTodos([createTodo(value), ...todos]);
+  const addTodo = (value, dueDate) => {
+    console.log("DUE DATE",dueDate)
+    setTodos([createTodo(value, dueDate), ...todos]);
   };
 
   const deleteTodo = (id) => {
