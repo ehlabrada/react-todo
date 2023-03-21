@@ -14,6 +14,7 @@ const TodoForm = ({ onAdd }) => {
     <form
       onSubmit={(event) => {
         event.preventDefault();
+          console.log("MY DAte", inputDateRef.current.value)
         if (inputDescriptionRef.current.value && inputDateRef.current.value) {
             onAdd(inputDescriptionRef.current.value, inputDateRef.current.value);
 

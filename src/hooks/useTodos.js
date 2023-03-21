@@ -8,7 +8,7 @@ const useTodos = (currentDate, timeFrequency) => {
       isCompleted: false,
       isPinned: false,
       creationDate: new Date(2023, 2, 21),
-      dueDate: new Date(2023, 2, 21),
+      dueDate: new Date("2023-03-21T14:53:00"),
     },
     {
       id: 2,
@@ -44,6 +44,8 @@ const useTodos = (currentDate, timeFrequency) => {
     },
   ]);
 
+  console.log("ALLTODOS", todos)
+
   // Initial function to help to create todos (pure function)
   const createTodo = (value, dueDate) => {
     return {
@@ -52,7 +54,7 @@ const useTodos = (currentDate, timeFrequency) => {
       isCompleted: false,
       isPinned: false,
       creationDate: new Date(),
-      dueDate: new Date(dueDate),
+      dueDate: new Date(dueDate+'T'+"23:59:59"),
     };
   };
 
