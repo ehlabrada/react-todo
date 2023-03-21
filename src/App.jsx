@@ -24,7 +24,7 @@ function App() {
                 onDayChange={(change) => handleOnDateChange(change)}
               />
               <TodoForm onAdd={(value) => options.add(value)} />
-              <TodoList todos={todos} onDelete={(id) => options.delete(id)} />
+              <TodoList todos={todos} onDelete={(id) => options.delete(id)} onComplete={options.onCheck}/>
             </VStack>
           </Box>
         </GridItem>

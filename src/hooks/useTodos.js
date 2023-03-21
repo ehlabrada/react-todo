@@ -50,6 +50,12 @@ const useTodos = (currentDate) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
+  const handleCheckTodo = (id) => {
+    setTodos(
+        todos.map((todo) => (todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo))
+    );
+  }
+
   const pinTodo = (id) => {
     setTodos(
       todos.map((todo) => (todo.id === id ? { ...todo, isPinned: true } : todo))
@@ -70,6 +76,7 @@ const useTodos = (currentDate) => {
     delete: deleteTodo,
     pinTodo: pinTodo,
     unpinTodo: unpinTodo,
+    onCheck: handleCheckTodo
   };
 };
 
