@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import {HamburgerIcon} from "@chakra-ui/icons";
 
-const TodoOptions = ({id, onDelete}) => {
+const TodoOptions = ({todo: {id, isPinned, isCompleted}, onDelete, onPin}) => {
   return (
     <Popover>
       <PopoverTrigger>
@@ -26,7 +26,7 @@ const TodoOptions = ({id, onDelete}) => {
         <PopoverBody>
           <VStack>
             <Button onClick={() => onDelete(id)}>Delete</Button>
-            <Button >Pin task</Button>
+            <Button isDisabled={isCompleted} onClick={() => onPin(id)}>{isPinned ? "Unpin" : "Pin"} task</Button>
           </VStack>
         </PopoverBody>
       </PopoverContent>
